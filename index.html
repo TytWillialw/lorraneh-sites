@@ -17,7 +17,7 @@ font-family:Arial,sans-serif;
 body{
 background:linear-gradient(-45deg,#2d004d,#4b0082,#6a0dad,#8a2be2);
 background-size:400% 400%;
-animation:fundo 12s ease infinite;
+animation:fundo 10s ease infinite;
 color:white;
 text-align:center;
 overflow-x:hidden;
@@ -32,22 +32,28 @@ overflow-x:hidden;
 h1{
 font-size:45px;
 margin-top:20px;
-text-shadow:0 0 25px #ff66ff;
+text-shadow:0 0 20px #ff66ff;
 }
 
 .contador{
-font-size:24px;
+font-size:22px;
 font-weight:bold;
 margin:20px;
 padding:15px;
-text-shadow:0 0 10px white;
+}
+
+.galeria{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:20px;
 }
 
 .foto-box{
-width:340px;
-margin:25px auto;
+width:280px;
 padding:8px;
-border-radius:30px;
+border-radius:25px;
 background:linear-gradient(
 45deg,
 #ff00ff,
@@ -62,8 +68,10 @@ box-shadow:0 0 35px #ff66ff;
 
 .foto-box img{
 width:100%;
+height:350px;
+object-fit:cover;
+border-radius:20px;
 display:block;
-border-radius:25px;
 }
 
 @keyframes borda{
@@ -74,15 +82,15 @@ border-radius:25px;
 
 .carta{
 width:90%;
-max-width:800px;
-margin:25px auto;
+max-width:850px;
+margin:20px auto;
 padding:25px;
 background:rgba(255,255,255,.12);
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
 border-radius:25px;
-box-shadow:0 0 25px rgba(255,255,255,.3);
-font-size:18px;
+box-shadow:0 0 20px rgba(255,255,255,.3);
 line-height:1.9;
+font-size:18px;
 }
 
 .coracao{
@@ -102,8 +110,8 @@ transform:translateY(120vh);
 iframe{
 width:90%;
 max-width:500px;
-border-radius:20px;
 margin:20px;
+border-radius:20px;
 }
 
 </style>
@@ -115,8 +123,24 @@ margin:20px;
 
 <div class="contador" id="contador"></div>
 
+<div class="galeria">
+
 <div class="foto-box">
 <img src="IMG_20260612_085029_808.jpg">
+</div>
+
+<div class="foto-box">
+<img src="IMG_20260614_001727_937.jpg">
+</div>
+
+<div class="foto-box">
+<img src="IMG_20260614_001847_028.jpg">
+</div>
+
+<div class="foto-box">
+<img src="IMG_20260614_001858_683.jpg">
+</div>
+
 </div>
 
 <div class="carta">
@@ -170,7 +194,6 @@ const inicio = new Date("2026-05-14T00:00:00");
 function atualizar(){
 
 const agora = new Date();
-
 let diff = agora - inicio;
 
 let segundos = Math.floor(diff/1000);
@@ -192,7 +215,7 @@ document.getElementById("contador").innerHTML =
 setInterval(atualizar,1000);
 atualizar();
 
-for(let i=0;i<120;i++){
+for(let i=0;i<150;i++){
 
 let c=document.createElement("div");
 
